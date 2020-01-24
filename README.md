@@ -74,8 +74,8 @@ Open the application on your browser `127.0.0.1:8000`.
 * There are no known bugs currently but pull requests are allowed incase you spot a bug  
   
 ## Support and contact details
- For any issues ,contact at https://github.com/NzauM/Hoodwatch/issues <br>
- Or for any pull requests, https://github.com/NzauM/Hoodwatch/pulls
+ For any issues ,contact at https://github.com/NzauM/EPAD/issues <br>
+ Or for any pull requests, https://github.com/NzauM/EPAD/pulls
   Incase you need more clarification, feel free to send an email to: 
 Email: mercywaenu16@gmail.com
   
