@@ -8,11 +8,13 @@ class profile(models.Model):
     Class to define employee
     '''
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic = models.ImageField(upload_to='pictures/')
-    first_name=models.CharField(max_length=500)
-    last_name=models.CharField(max_length=500)
-    position=models.CharField(max_length=500)
-    employed_on=models.DateTimeField(auto_now_add=False)
+    profile_pic = models.ImageField(upload_to='pictures/',blank=True)
+    first_name=models.CharField(max_length=500,blank=True)
+    last_name=models.CharField(max_length=500,blank=True)
+    position=models.CharField(max_length=500,blank=True)
+    employed_on=models.DateTimeField(auto_now_add=True)
+
+
 
     
 
@@ -20,10 +22,12 @@ class kpis(models.Model):
     '''
     Class to define the key performance indicators
     '''
-    objectives = models.IntegerField(default=1)
+    rates_for=models.ForeignKey(User,on_delete=models.CASCADE)
     work_quality = models.IntegerField(default=1)
     attendance=models.IntegerField(default=1)
-    absenteeism=models.IntegerField(default=1)
+    punctuality = models.IntegerField(default=1)
+    soft_skills=models.IntegerField(default=1)
+    
 
 class tasks(models.Model):
     '''
@@ -33,10 +37,18 @@ class tasks(models.Model):
     task=models.TextField(max_length=5000)
     added_on=models.DateTimeField(auto_now_add=True)
     due_date=models.DateTimeField(auto_now_add=False)
-    completed=models.CharField(max_length=10)
-    asigned_to = models.ForeignKey(User,on_delete=models.CASCADE)
+    completed=models.BooleanField(default=False)
+    assigned_to=models.ManyToManyField(User)
 
-/
+    def user_tasks(cls,id):
+        user_tasks = cls.objects.filter(assigned_to = assigned_to)
+        return user_tasks
+
+
+
+
+
+
 
 
 
